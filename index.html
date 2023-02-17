@@ -633,7 +633,7 @@ Author URI: https://themeforest.net/user/ashishmaraviya
                     <iframe src="//maps.google.com/maps?q=-12.942227,-38.480291&z=15&output=embed" allowfullscreen=""></iframe>
                 </div>
                 <div class="col-md-6" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
-                    <form>
+                    <form onsubmit="sendEmail(); reset(); return false">
                         <div class="form-group" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
                             <input type="text" class="form-control" id="fname" placeholder="Full Name">
                         </div>
@@ -837,6 +837,27 @@ Author URI: https://themeforest.net/user/ashishmaraviya
     <div class="ms-cursor"></div>
     <div class="ms-cursor-2"></div>
 
+    <!-- contact form -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+    Host : "smtp.gmail.com",
+    Username : "nozad202@gmail.com",
+    Password : "qgaxsvkkkcxrxdmx",
+    To : 'nozad202@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "This is the subject",
+    Body : "Name: " + document.getElementById("name").value
+    + "<br> Email: " + document.getElementById("email").value
+    + "<br> Phone no: " + document.getElementById("phone").value
+    + "<br> Messege : " + document.getElementById("messege").value
+}).then(
+  message => alert("Message Sent Succesfully")
+);
+            }
+        
+    </script>
     <!-- Plugins JS -->
     <script src="assets/js/plugins/jquery-3.5.1.min.js"></script>
     <script src="assets/js/plugins/bootstrap.bundle.min.js"></script>
